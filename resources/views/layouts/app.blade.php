@@ -43,7 +43,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('home') }}#writers">Writers</a>
+                        <a class="nav-link {{ request()->routeIs('writers.*') ? 'active fw-semibold' : '' }}" href="{{ route('writers.index') }}">Writers</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('home') }}#about">About Us</a>

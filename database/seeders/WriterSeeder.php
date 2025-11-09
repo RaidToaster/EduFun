@@ -15,7 +15,6 @@ class WriterSeeder extends Seeder
         $faker = fake();
         $writers = [
             ['name' => 'Bia Pratama', 'role' => 'Machine Learning Specialist'],
-            ['name' => 'Sabrina Wulandari', 'role' => 'HCI Researcher'],
             ['name' => 'Rafi Yudhistira', 'role' => 'Network Security Analyst'],
             ['name' => 'Naya Dewi', 'role' => 'Data Engineer'],
         ];
