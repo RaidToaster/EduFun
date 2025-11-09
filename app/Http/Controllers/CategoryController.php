@@ -10,11 +10,22 @@ class CategoryController extends Controller
     public function index(): View
     {
         $categories = Category::with(['articles' => function ($query) {
-            $query->latest('published_at')->take(3);
+            $query->with('writer')->latest('published_at')->take(3);
         }])->orderBy('name')->get();
 
         return view('categories.index', [
             'categories' => $categories,
+        ]);
+    }
+
+    public function show(Category $category): View
+    {
+        $category->load(['articles' => function ($query) {
+            $query->with('writer')->latest('published_at');
+        }]);
+
+        return view('categories.show', [
+            'category' => $category,
         ]);
     }
 }

@@ -46,4 +46,13 @@ class ArticleController extends Controller
             'popularArticles' => $popularArticles,
         ]);
     }
+
+    public function show(Article $article): View
+    {
+        $article->load(['writer', 'category']);
+
+        return view('articles.show', [
+            'article' => $article,
+        ]);
+    }
 }

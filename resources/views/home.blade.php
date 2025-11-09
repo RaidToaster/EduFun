@@ -57,9 +57,9 @@ $heroImage = 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=
                         {{ optional($article->published_at)->format('d M Y') }} &middot;
                         {{ $article->writer?->name }} &middot; {{ $article->category?->name }}
                     </div>
-                    <h3 class="h5">{{ $article->title }}</h3>
-                    <p class="mb-3">{{ Str::limit($article->summary ?? $article->content, 150) }}</p>
-                    <a href="#" class="btn btn-dark rounded-pill text-lowercase">read more...</a>
+                            <h3 class="h5">{{ $article->title }}</h3>
+                            <p class="mb-3">{{ Str::limit($article->summary ?? $article->content, 150) }}</p>
+                            <a href="{{ route('articles.show', $article) }}" class="btn btn-dark rounded-pill text-lowercase">read more...</a>
                 </div>
             </div>
         </div>
@@ -132,10 +132,11 @@ $heroImage = 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=
                 <div class="card-body">
                     <p class="text-uppercase text-muted small fw-semibold mb-1">{{ $article->category?->name }}</p>
                     <h3 class="h5">{{ $article->title }}</h3>
-                    <p>{{ Str::limit($article->summary ?? $article->content, 130) }}</p>
-                    <div class="text-muted small">
-                        {{ optional($article->published_at)->format('d M Y') }} &middot; {{ $article->writer?->name }}
-                    </div>
+                            <p>{{ Str::limit($article->summary ?? $article->content, 130) }}</p>
+                            <div class="text-muted small">
+                                {{ optional($article->published_at)->format('d M Y') }} &middot; {{ $article->writer?->name }}
+                            </div>
+                            <a href="{{ route('articles.show', $article) }}" class="btn btn-link p-0 mt-2 text-decoration-none">read more...</a>
                 </div>
             </div>
         </div>

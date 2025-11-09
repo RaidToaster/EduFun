@@ -38,11 +38,14 @@
             <div class="card border-0 shadow-sm rounded-4 mb-4">
                 <div class="card-body p-4">
                     <div class="d-flex flex-column flex-lg-row justify-content-between gap-3">
-                        <div>
+                        <div class="flex-grow-1">
                             <p class="text-uppercase text-muted small fw-semibold mb-1">{{ $category->name }}</p>
                             <h3 class="h4">{{ $category->name }}</h3>
                             <p class="text-muted mb-3">{{ Str::limit($category->description, 200) }}</p>
-                            <span class="badge text-bg-dark">{{ $category->articles->count() }} Artikel</span>
+                            <div class="d-flex align-items-center gap-3">
+                                <span class="badge text-bg-dark">{{ $category->articles->count() }} Artikel</span>
+                                <a href="{{ route('categories.show', $category) }}" class="btn btn-outline-dark rounded-pill">Lihat Detail</a>
+                            </div>
                         </div>
                         <div class="flex-grow-1">
                             <div class="row g-3">
@@ -56,7 +59,7 @@
                                             <p class="small text-muted mb-3">{{ Str::limit($article->summary ?? $article->content, 90) }}</p>
                                             <div class="d-flex justify-content-between align-items-center small text-muted">
                                                 <span>by {{ $article->writer?->name }}</span>
-                                                <a href="#" class="btn btn-sm btn-outline-dark rounded-pill">read more</a>
+                                                <a href="{{ route('articles.show', $article) }}" class="btn btn-sm btn-outline-dark rounded-pill">read more</a>
                                             </div>
                                         </div>
                                     </div>

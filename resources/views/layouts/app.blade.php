@@ -19,13 +19,39 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="mainNav">
-                <div class="navbar-nav">
-                    <a class="nav-link {{ request()->routeIs('home') ? 'active fw-semibold' : '' }}" href="{{ route('home') }}">Home</a>
-                    <a class="nav-link {{ request()->routeIs('categories.*') ? 'active fw-semibold' : '' }}" href="{{ route('categories.index') }}">Category</a>
-                    <a class="nav-link" href="{{ route('home') }}#writers">Writers</a>
-                    <a class="nav-link" href="{{ route('home') }}#about">About Us</a>
-                    <a class="nav-link" href="{{ route('home') }}#popular">Popular</a>
-                </div>
+                <ul class="navbar-nav align-items-lg-center">
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('home') ? 'active fw-semibold' : '' }}" href="{{ route('home') }}">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle {{ request()->routeIs('categories.*') ? 'active fw-semibold' : '' }}"
+                           href="{{ route('categories.index') }}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Category
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item fw-semibold" href="{{ route('categories.index') }}">All Categories</a>
+                            </li>
+                            <li><hr class="dropdown-divider"></li>
+                            @forelse(($navCategories ?? collect()) as $category)
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('categories.show', $category) }}">{{ $category->name }}</a>
+                                </li>
+                            @empty
+                                <li><span class="dropdown-item text-muted">No categories yet</span></li>
+                            @endforelse
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('home') }}#writers">Writers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('home') }}#about">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('home') }}#popular">Popular</a>
+                    </li>
+                </ul>
             </div>
         </nav>
     </header>
