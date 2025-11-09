@@ -2,6 +2,8 @@
 
 EduFun adalah aplikasi web berbasis Laravel yang dikembangkan untuk memenuhi kebutuhan ujian **Web Programming** BINUS University. Fokusnya adalah menyediakan konten pembelajaran gratis untuk mahasiswa IT dengan kategori **Data Science** dan **Network Security** lengkap dengan artikel populer, penulis, dan halaman dokumentasi.
 
+# **JAWABAN DOCS/PDF ADA DI FOLDER /docs**
+
 ## Tech Stack
 
 - PHP 8.x & Laravel 10
@@ -37,14 +39,17 @@ EduFun adalah aplikasi web berbasis Laravel yang dikembangkan untuk memenuhi keb
    ```
 
 Seeder akan menyiapkan:
+
 - 2 kategori (Data Science & Network Security)
 - 4 writer dengan bio singkat
 - 6 artikel populer lengkap dengan thumbnail Unsplash dan relasi writer/kategori
 
 ## Menjalankan Aplikasi
+
 ```bash
 php artisan serve
 ```
+
 Kunjungi `http://127.0.0.1:8000`.
 
 ## Fitur Utama
@@ -59,7 +64,9 @@ Kunjungi `http://127.0.0.1:8000`.
 - **About**: penjelasan singkat mengenai visi EduFun.
 
 ## Dokumentasi Tambahan
+
 Dokumen pendukung dalam format **.docx** dan **.pdf** tersedia di folder `docs/` pada root proyek.
 
 ---
+
 Selamat mengerjakan & semoga sukses pada ujian Web Programming! 🎓
