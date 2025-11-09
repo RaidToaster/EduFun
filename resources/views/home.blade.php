@@ -129,15 +129,15 @@ $heroImage = 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=
         @forelse($popularArticles as $article)
         <div class="col">
             <div class="card border-0 shadow-sm h-100">
-                <div class="card-body">
-                    <p class="text-uppercase text-muted small fw-semibold mb-1">{{ $article->category?->name }}</p>
-                    <h3 class="h5">{{ $article->title }}</h3>
+                        <div class="card-body">
+                            <p class="text-uppercase text-muted small fw-semibold mb-1">{{ $article->category?->name }}</p>
+                            <h3 class="h5">{{ $article->title }}</h3>
                             <p>{{ Str::limit($article->summary ?? $article->content, 130) }}</p>
                             <div class="text-muted small">
                                 {{ optional($article->published_at)->format('d M Y') }} &middot; {{ $article->writer?->name }}
                             </div>
                             <a href="{{ route('articles.show', $article) }}" class="btn btn-link p-0 mt-2 text-decoration-none">read more...</a>
-                </div>
+                        </div>
             </div>
         </div>
         @empty

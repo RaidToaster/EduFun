@@ -6,6 +6,7 @@ use App\Models\Article;
 use App\Models\Category;
 use App\Models\Writer;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
@@ -43,6 +44,20 @@ class ArticleController extends Controller
             'latestArticles' => $latestArticles,
             'categories' => $categories,
             'featuredWriters' => $featuredWriters,
+            'popularArticles' => $popularArticles,
+        ]);
+    }
+
+    public function popular(Request $request): View
+    {
+        $perPage = 3;
+        $popularArticles = Article::with(['writer', 'category'])
+            ->where('is_popular', true)
+            ->orderBy('popular_page')
+            ->orderByDesc('published_at')
+            ->paginate($perPage);
+
+        return view('articles.popular', [
             'popularArticles' => $popularArticles,
         ]);
     }

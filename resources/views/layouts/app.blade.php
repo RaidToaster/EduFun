@@ -46,10 +46,10 @@
                         <a class="nav-link {{ request()->routeIs('writers.*') ? 'active fw-semibold' : '' }}" href="{{ route('writers.index') }}">Writers</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('home') }}#about">About Us</a>
+                        <a class="nav-link {{ request()->routeIs('about') ? 'active fw-semibold' : '' }}" href="{{ route('about') }}">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('home') }}#popular">Popular</a>
+                        <a class="nav-link {{ request()->routeIs('articles.popular') ? 'active fw-semibold' : '' }}" href="{{ route('articles.popular') }}">Popular</a>
                     </li>
                 </ul>
             </div>
